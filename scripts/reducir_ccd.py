@@ -1,10 +1,8 @@
-# practica_CCD/scripts/reducir_ccd.py
 
 from pyraf import iraf
 import os
 import sys
 
-# --- 1. CONFIGURACIÓN DEL ENTORNO ---
 cwd = os.path.abspath(os.path.dirname(__file__))
 root_dir = os.path.abspath(os.path.join(cwd, ".."))
 os.chdir(root_dir)
@@ -12,7 +10,6 @@ os.chdir(root_dir)
 print(f"[INFO] Directorio de trabajo: {os.getcwd()}")
 
 
-# --- 2. DEFINICIÓN DE RUTAS Y ARCHIVOS ---
 output_dir = "resultados"
 lista_bias = "bias.lst"
 lista_dark = "dark.lst"
@@ -26,7 +23,6 @@ os.makedirs(output_dir, exist_ok=True)
 print(f"[INFO] Los resultados se guardarán en: ./{output_dir}/")
 
 
-# --- 3. PROCESO DE REDUCCIÓN ---
 def delete_if_exists(filepath):
     if os.path.exists(filepath):
         print(f"  [AVISO] El archivo '{filepath}' ya existe. Borrando para sobreescribir.")
@@ -45,7 +41,6 @@ check_lista(lista_bias)
 check_lista(lista_dark)
 check_lista(lista_flat)
 
-# Reducir bias
 print(f"Reduciendo bias... -> {output_bias_path}")
 delete_if_exists(output_bias_path)
 iraf.zerocombine(
@@ -56,7 +51,6 @@ iraf.zerocombine(
     process="no"
 )
 
-# Reducir dark
 print(f"Reduciendo dark... -> {output_dark_path}")
 delete_if_exists(output_dark_path)
 iraf.darkcombine(
@@ -69,7 +63,6 @@ iraf.darkcombine(
     process="no"
 )
 
-# Reducir flat
 print(f"Reduciendo flat... -> {output_flat_path}")
 delete_if_exists(output_flat_path)
 iraf.flatcombine(

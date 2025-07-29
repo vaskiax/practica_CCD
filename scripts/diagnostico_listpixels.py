@@ -1,8 +1,6 @@
-# scripts/diagnostico_listpixels.py
 from pyraf import iraf
 import sys
 
-# Cargamos los paquetes necesarios para llegar a la tarea
 try:
     iraf.images()
     iraf.imutil()
@@ -16,6 +14,4 @@ print("="*50)
 print("Por favor, copia todo el texto que aparece debajo de esta línea y pégalo en la respuesta.")
 print("\n")
 
-# Esta función nos mostrará la lista de todos los parámetros
-# y sus nombres correctos para la tarea 'listpixels'.
 iraf.images.imutil.listpixels.lParam()

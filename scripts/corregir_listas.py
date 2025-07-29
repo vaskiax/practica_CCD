@@ -9,7 +9,6 @@ def renombrar_subcarpetas(directorio_raiz):
                 print(f"Renombrando: {subcarpeta_vieja} -> {subcarpeta_nueva}")
                 os.rename(subcarpeta_vieja, subcarpeta_nueva)
 
-# Ejecutar desde la carpeta principal del dataset
 if __name__ == "__main__":
     ruta_base = os.getcwd()  # Usa el directorio actual
     renombrar_subcarpetas(ruta_base)

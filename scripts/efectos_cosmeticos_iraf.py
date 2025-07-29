@@ -1,16 +1,12 @@
-# scripts/4_efectos_cosmeticos_iraf.py
 import os
 from pyraf import iraf
 
-# Cargamos los paquetes necesarios
 iraf.noao()
 iraf.imred()
 iraf.ccdred()
 
-# Permitimos sobreescribir el archivo de salida si ya existe
 iraf.set(overwrite='yes')
 
-# Rutas a los archivos
 flat_maestro = 'resultados/Flat.fits'
 bad_pixel_mask = 'resultados/bad_pixel_mask.pl' 
 
@@ -19,14 +15,9 @@ print("--- Creando Máscara de Píxeles Malos con 'ccdmask' ---")
 print(f"Imagen de entrada: {flat_maestro}")
 print(f"Máscara de salida: {bad_pixel_mask}")
 
-# Configuramos los umbrales usando los nombres de parámetros correctos
 iraf.ccdred.ccdmask.setParam('lsigma', 3.0) 
 iraf.ccdred.ccdmask.setParam('hsigma', 3.0)
 
-# ## CORRECCIÓN FINAL ##: Usamos los nombres de parámetros exactos de tu sistema
-# 'image' en lugar de 'images'/'input'
-# 'mask' en lugar de 'masks'/'output'
-# Y llamamos a la tarea con la ruta completa para máxima seguridad
 iraf.ccdred.ccdmask(
     image=flat_maestro,
     mask=bad_pixel_mask,

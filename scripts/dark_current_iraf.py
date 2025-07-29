@@ -1,13 +1,10 @@
-# scripts/2_dark_current_iraf.py
 import os
 import matplotlib.pyplot as plt
 from pyraf import iraf
 from scipy.stats import linregress
 
-# Cargamos el paquete de IRAF necesario
 iraf.images()
 
-# Rutas a los datos y archivos
 dark_base_dir = 'datos/dark'
 bias_master_path = 'resultados/Zero.fits'
 temp_image = 'resultados/temp_dark_sub.fits' # Imagen temporal para la resta
@@ -67,11 +64,9 @@ for exp_dir in exposure_dirs:
         print(f"  [AVISO] Omitiendo el directorio {exp_dir} por un error.")
         continue
 
-# Limpiar la imagen temporal una última vez al final
 if os.path.exists(temp_image):
     os.remove(temp_image)
 
-# --- Ajuste lineal y gráfica ---
 slope, intercept, r_value, p_value, std_err = linregress(tiempos, medias_dark)
 dark_current = slope
 

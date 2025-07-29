@@ -1,17 +1,12 @@
-# scripts/visualizar_mascara.py
 import os
 import sys
 from pyraf import iraf
 
-# --- CARGA DE PAQUETES Y CONFIGURACIÓN ---
-# El paquete 'tv' contiene las tareas de visualización como 'display' y 'tvmark'
 iraf.tv()
 
-# --- RUTAS A LOS ARCHIVOS A VISUALIZAR ---
 image_to_display = 'resultados/Flat.fits'
 mask_file = 'resultados/bad_pixel_mask.pl'
 
-# --- VERIFICACIÓN DE QUE LOS ARCHIVOS EXISTEN ---
 if not os.path.exists(image_to_display):
     sys.exit(f"[ERROR] No se encuentra la imagen de referencia: {image_to_display}")
 if not os.path.exists(mask_file):

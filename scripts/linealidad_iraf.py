@@ -1,10 +1,7 @@
-# scripts/1_linealidad_iraf.py
 import os
 import matplotlib.pyplot as plt
 from pyraf import iraf
 
-# Cargamos los paquetes necesarios de IRAF
-# IMAGES contiene hselect e imstatistics
 iraf.images() 
 
 flat_base_dir = 'datos/flat'
@@ -60,7 +57,6 @@ for exp_dir in exposure_dirs:
         print(f"  [AVISO] Omitiendo el directorio {exp_dir} por un error.")
         continue
 
-# --- Generar la gráfica (Sin cambios) ---
 plt.figure(figsize=(10, 6))
 plt.plot(tiempos, medias_flujo, 'o-', label='Flujo promedio (IRAF imstat)')
 plt.title('Respuesta del CCD (Linealidad)')

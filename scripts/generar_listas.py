@@ -1,6 +1,5 @@
 import os
 
-# Carpeta raíz donde están los datos (ajusta si es necesario)
 base_dir = os.path.join(os.getcwd(), "datos")
 tipos_calibracion = ["bias", "dark", "flat"]
 extensiones_validas = [".fit", ".fits", ".fts"]
