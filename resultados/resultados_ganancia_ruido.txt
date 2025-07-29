@@ -1,0 +1,24 @@
+
+========================================
+    INFORME DE GANANCIA Y RUIDO DE LECTURA
+========================================
+
+Parámetros de entrada:
+----------------------
+- Directorio de Flats usado: datos/flat/3_2s
+- Región de análisis: [188:564,145:436]
+
+Valores intermedios calculados:
+-------------------------------
+- Media de B1: 536.88 ADU
+- Media de B2: 536.30 ADU
+- Media de F1: 2289.19 ADU
+- Media de F2: 2272.48 ADU
+- Desviación Estándar de (B1 - B2): 7.72 ADU
+- Desviación Estándar de (F1 - F2): 20.95 ADU
+
+Resultados Finales:
+-------------------
+Ganancia (G)             : 9.20 e-/ADU
+Ruido de Lectura (RN)    : 50.19 e-
+========================================
